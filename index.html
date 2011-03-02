@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset='utf8'>
+<style></style>
+<script src='file:///home/http/demo/python-webgui/demo/jquery.js'></script>
+<script src='file:///home/http/demo/python-webgui/demo/ui/jquery.ui.core.js' type='text/javascript'></script>
+<script src='file:///home/http/demo/python-webgui/demo/ui/jquery.ui.widget.js' type='text/javascript'></script>
+<script src='file:///home/http/demo/python-webgui/demo/ui/jquery.ui.dialog.js' type='text/javascript'></script>
+<script src='file:///home/http/demo/python-webgui/demo/ui/jquery.ui.button.js' type='text/javascript'></script>
+<link type='text/css' href='file:///home/http/demo/python-webgui/demo/jquery-ui-1.8.7.custom.css' rel='stylesheet' />
+
+<div onclick='runFunc("{\"func\":\"scan_file\"}")'>扫描文件</div><p>
+<div onclick='runFunc("{\"func\":\"scan_dir\"}")'>扫描目录</div><p>
+<div onclick='$("#about").dialog("open");'>关于</div>
+
+<div id='about' title='关于'>
+	<p>ClamGTK/诛邪 0.3</p>
+	<p></p>
+	<p>powered by pygtk,clamav,webkit,jquery-ui.</p>
+</div>
+<script>
+function runFunc(cmd){
+	console.log(cmd);
+}
+function getCmd(str){
+	console.log(decodeURI(str));
+	$('body').append('<p></p>'+decodeURI(str)+'</p>');
+}
+$('div').button();
+$('#about').dialog({
+	autoOpen: false,
+	//modal: true
+});
+</script>
