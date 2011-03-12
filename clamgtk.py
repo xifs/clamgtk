@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 #encoding:utf8
-import os,gtk,pyclamd
+import os,sys,gtk,pyclamd
 import webkit,json
 from urllib import quote, unquote
 
@@ -19,7 +19,7 @@ class ClamGtk():
 		self.scrolledwindow.add(self.webview)
 		self.webview.show_all()
 		self.window.show_all()
-		self.webview.load_uri('file:///home/http/demo/clamgtk/ui.html')
+		self.webview.load_uri('file://'+sys.path[0]+'/ui/index.html') #os.getcwd()
 		self.window.connect('destroy',self.do_quit)
 		self.webview.connect('console-message',self.console)
 		self.clamd = self.connect_clamd()
